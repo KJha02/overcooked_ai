@@ -60,9 +60,10 @@ setup(
             "matplotlib",
             "requests",
             "seaborn==0.9.0",
-            "ray[rllib]==2.2.0",
-            "protobuf",
-            "tensorflow==2.10",
+            "protobuf"
+            # "ray[rllib]==2.2.0",
+            # "protobuf",
+            # "tensorflow==2.10",
         ]
     },
     entry_points={

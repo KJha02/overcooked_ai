@@ -1,10 +1,12 @@
-FROM python:3.7-buster 
+FROM python:3.11.6
 
 ARG BUILD_ENV
 ARG OVERCOOKED_BRANCH
 ARG GRAPHICS
 
 WORKDIR /app
+
+RUN pip install --upgrade pip==24.2
 
 # Install non-chai dependencies
 COPY ./requirements.txt ./requirements.txt
@@ -31,6 +33,8 @@ COPY ./*.py ./
 COPY ./graphics/$GRAPHICS ./static/js/graphics.js
 COPY ./config.json ./config.json
 
+COPY ./TakedownCooked ./TakedownCooked
+RUN pip install -e 'TakedownCooked'
 
 
 # Set environment variables that will be used by app.py
